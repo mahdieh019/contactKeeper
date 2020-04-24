@@ -1,5 +1,13 @@
 const express=require('express');
 const app=express();
+const connectDB=require('./config/db');
+
+
+//Init Middleware (body parser is part of express)
+app.use(express.json({extended:false}));
+
+//Connect Database
+connectDB();
 
 // app.get('/',(req,res)=>res.send('Hello World'))
 app.get('/',(req,res)=>res.json({msg:'Welcome to the ContactKeeper API'}))
